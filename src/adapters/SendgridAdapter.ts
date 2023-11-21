@@ -1,8 +1,8 @@
 import IMailerProviderAdapter from '../adapters/IMailerProviderAdapter';
 
 class SendgridAdapter implements IMailerProviderAdapter {
-    sendEmail(): void {
-      console.log('Enviando email con Sendgrid');
+    sendEmail(): string {
+      return 'Enviando email con Sendgrid';
     }
   }
   

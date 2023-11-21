@@ -28,3 +28,32 @@ import { MailerProviderAdapterFactory } from './factories/MailerProviderAdapterF
 const type = 'sendgrid';
 const mailerProvider: IMailerProviderAdapter = MailerProviderAdapterFactory.createMailerAdapter(type);
 mailerProvider.sendEmail();
+```
+
+## Tests and Examples
+
+## Tests
+
+The project includes a test suite to ensure the correctness of the Factory Method Pattern implementation for mail provider adapters. One specific test case is highlighted below as an example:
+
+### Invalid Adapter Type Test
+To ensure that the factory method correctly handles invalid adapter types, a test case has been included in the test suite. This test verifies that attempting to create an adapter with an invalid type results in the expected error.
+
+```typescript
+// tests/Main.test.ts
+import { expect } from 'chai';
+import IMailerProviderAdapter from '../src/adapters/IMailerProviderAdapter';
+import MailerProviderAdapterFactory from '../src/factories/MailerProviderAdapterFactory';
+
+describe('Mailer Provider Tests', () => {
+  it('Invalid Adapter Type Test', () => {
+    const invalidType = 'invalid';
+
+    // Utiliza una función anónima para verificar el lanzamiento de la excepción
+    expect(() => {
+      MailerProviderAdapterFactory.createMailerAdapter(invalidType);
+    }).to.throw('Tipo de adaptador de correo no válido');
+  });
+});
+```
+Make sure to run this test as part of your testing suite to ensure the robustness of the factory method implementation.
